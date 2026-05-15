@@ -11,7 +11,7 @@ def testread1():
         print(i)
     connection.commit()
     connection.close()
- 
+
 
 print("Data read successfully")
 
@@ -42,10 +42,10 @@ def testRead3():
     cursor = connection.cursor()
 
     sql = "select * from employee"
-     # sql = "select * from employee where id = 1"
-     # sql = "select * from employee where LastName = 'Kumar'"
-     # sql = "select * from employee where name like 'a%'"
-     # sql = "select * from employee where Salary = 50000"
+    # sql = "select * from employee where id = 1"
+    # sql = "select * from employee where LastName = 'Kumar'"
+    # sql = "select * from employee where name like 'a%'"
+    # sql = "select * from employee where Salary = 50000"
 
     print('sql => ', sql)
     cursor.execute(sql)
@@ -55,7 +55,36 @@ def testRead3():
     connection.commit()
     connection.close()
 
+
 print("Data read 3 successfully")
 
 testRead3()
 
+
+def testread4(id, name, company, salary):
+    connection = pymysql.connect(host='localhost', port=3306, user='root', password='root', db='nitin')
+    cursor = connection.cursor()
+
+    sql = 'select * from employee'
+    if id != 0:
+        sql += " where id = " + str(id)
+    if name != '':
+        sql += " where name like '" + name + "%'"
+    if company != '':
+        sql += " where company like '" + company + "%'"
+    if salary != 0:
+        sql += " where salary = " + str(salary)
+
+    print('sql => ', sql)
+    cursor.execute(sql)
+    result = cursor.fetchall()
+    for data in result:
+        print(data[0], '\t', data[1], '\t', data[2], '\t', data[3])
+
+    connection.commit()
+    connection.close()
+
+    print("Data read 4 successfully")
+
+
+testread4(8,'','',0)
