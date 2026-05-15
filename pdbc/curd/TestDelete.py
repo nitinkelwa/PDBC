@@ -9,15 +9,30 @@
 # print("Data Delete Successfully")
 
 ########################################################################################################################
-
+#
+#
+# import pymysql
+#
+# connection= pymysql.connect(host='localhost',port=3306,user='root',password='root',db='indore')
+# cursor=connection.cursor()
+# sql="delete from marksheet where id =16"
+# cursor.execute(sql)
+# connection.commit()
+# connection.close()
+# print("data deleted successfully")
+#
+###############################################################################################################
 
 import pymysql
 
-connection= pymysql.connect(host='localhost',port=3306,user='root',password='root',db='indore')
+
+
+connection=pymysql.connect(host='localhost',port=3306,user='root',password='root',db='demo')
 cursor=connection.cursor()
-sql="delete from marksheet where id =16"
+sql="delete from claim where claimid=11"
 cursor.execute(sql)
 connection.commit()
 connection.close()
-print("data deleted successfully")
+
+print("data successfully deleted")
 

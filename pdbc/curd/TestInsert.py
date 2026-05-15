@@ -11,13 +11,25 @@
 # print("Data Inserted Successfully")
 
 #######################################################################################################
+#
+# import pymysql
+#
+# connection = pymysql.connect(host='localhost', port=3306, user='root', password='root', db='indore')
+# cursor = connection.cursor()
+# sql = "insert into marksheet values (16,200,'mahi',50,100,80)"
+# cursor.execute(sql)
+# connection.commit()
+# connection.close()
+# print("data insert successfully")
+
+####################################################################################################
 
 import pymysql
 
-connection = pymysql.connect(host='localhost', port=3306, user='root', password='root', db='indore')
+connection = pymysql.connect(host='localhost', port=3306, user='root', password='root', db='demo')
 cursor = connection.cursor()
-sql = "insert into marksheet values (16,200,'mahi',50,100,80)"
+sql = "insert into claim values(11,'clm111',20000,'pending')"
 cursor.execute(sql)
 connection.commit()
 connection.close()
-print("data insert successfully")
+print("data insert  successfully")

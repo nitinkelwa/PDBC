@@ -12,16 +12,34 @@
 # print("Data Read Successfully")
 
 #############################################################################################
+#
+# import pymysql
+#
+# connection = pymysql.connect(host='localhost', port=3306, user='root', password='root', db='indore')
+# cursor=connection.cursor()
+# sql="select*from marksheet"
+# cursor.execute(sql)
+# result=cursor.fetchall()
+# for data in result:
+#     print(*data)
+# connection.commit()
+# connection.close()
+# print("data read successfully")
+
+
+#########################################################################################################
 
 import pymysql
 
-connection = pymysql.connect(host='localhost', port=3306, user='root', password='root', db='indore')
-cursor=connection.cursor()
-sql="select*from marksheet"
+
+
+connection = pymysql.connect(host='localhost', port=3306, user='root', password='root', db='demo')
+cursor = connection.cursor()
+sql = "select * from claim"
 cursor.execute(sql)
-result=cursor.fetchall()
-for data in result:
-    print(*data)
+i=cursor.fetchall()
+for data in i:
+    print(data[0],data[1],data[2],data[3])
 connection.commit()
 connection.close()
 print("data read successfully")
